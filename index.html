@@ -8,7 +8,7 @@
   <!-- ===== OPEN GRAPH TAGS ===== -->
   <meta property="og:title" content="Pizzería Las Princesas — Pizza artesanal">
   <meta property="og:description" content="Masa casera, ingredientes seleccionados y horno bien caliente. La hacemos como nos gusta comerla: con mucho sabor.">
-  <meta property="og:image" content="https://github.com/GER34714/pizzerialasprincesas/blob/99559b2b8b741d1c83c7daf901cee9fd66775fb7/ChatGPT%20Image%209%20ago%202026%2C%2007_03_57%20p.m..jpg?raw=true">
+  <meta property="og:image" content="https://iili.io/C485Mua.md.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://pizzerialasprincesas.com">
@@ -32,7 +32,7 @@
     body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.055;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E")}
     a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer}
 
-    /* ===== FONDO DIFUMINADO DESDE "EL HORNO" HASTA EL FOOTER ===== */
+    /* ===== FONDO DIFUMINADO ===== */
     .bg-texture {
       position: fixed;
       top: 0;
@@ -49,9 +49,7 @@
       mask-image: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0.95) 100%);
       -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0.95) 100%);
     }
-    .bg-texture.visible {
-      opacity: 0.12;
-    }
+    .bg-texture.visible { opacity: 0.12; }
 
     /* ===== HERO ===== */
     .hero{height:100svh;min-height:650px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -244,7 +242,7 @@
     .btn.primary{background:var(--red);box-shadow:0 10px 35px #d5222238}.btn.primary:hover{transform:translateY(-3px);box-shadow:0 15px 45px #d5222260}
     .btn.ghost{border:1px solid #fff3;background:#ffffff09}.btn.ghost:hover{background:#fff1;transform:translateY(-3px)}
 
-    /* ===== CARRUSEL DE BANNERS - IMAGEN COMPLETA SIN RECORTES ===== */
+    /* ===== CARRUSEL DE BANNERS ===== */
     .banner-carousel{width:100%;padding:60px 6% 40px;background:linear-gradient(180deg, #0b0a08 0%, #14100e 100%);position:relative;overflow:hidden}
     .banner-track{display:flex;transition:transform .8s ease-in-out;gap:0}
     .banner-slide{min-width:100%;display:flex;align-items:center;justify-content:center;padding:10px 0}
@@ -441,13 +439,97 @@
     .field.full{grid-column:1/-1}
     .field label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#a9a094;margin-bottom:6px}
     .field input,.field textarea,.field select{width:100%;background:#1a1512;border:1px solid #fff2;color:#fff;border-radius:11px;padding:12px;outline:none;font-family:'DM Sans',sans-serif}
-    /* ===== ESTILOS PARA QUE LAS OPCIONES DEL SELECT SE VEAN BIEN ===== */
     .field select option{background:#1a1512;color:#fff;padding:8px 12px}
     .field select option:hover{background:var(--red);color:#fff}
     .field select:focus{border-color:var(--red)}
     .field textarea{min-height:75px;resize:vertical}
     .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--red)}
-    /* ===== ESTILOS PARA EL SELECT DE BARRIO (fondo oscuro, texto claro) ===== */
+    
+    /* ===== ESTILOS PARA EL CUADRO DE PAGO ===== */
+    .payment-info-box {
+      background: #0f0d0b;
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 12px;
+      display: none;
+      animation: fadeIn .3s ease;
+    }
+    .payment-info-box.show {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .payment-info-box .payment-title {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .payment-info-box .payment-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .payment-info-box .payment-row:last-child {
+      border-bottom: none;
+    }
+    .payment-info-box .payment-label {
+      color: #b9ae9e;
+      font-size: 13px;
+    }
+    .payment-info-box .payment-value {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+    }
+    .payment-info-box .copy-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+    .payment-info-box .copy-btn:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+    .payment-info-box .copy-btn.copied {
+      background: #22c55e;
+      border-color: #22c55e;
+    }
+    .payment-info-box .payment-note {
+      color: #b9ae9e;
+      font-size: 12px;
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border-left: 3px solid var(--gold);
+      line-height: 1.5;
+    }
+    .payment-info-box .payment-note strong {
+      color: var(--gold);
+    }
+    .payment-info-box .payment-note .highlight {
+      color: #fff;
+      font-weight: 700;
+    }
+
     #neighborhood{background:#1a1512;color:#fff;border:1px solid #fff2}
     #neighborhood option{background:#1a1512;color:#fff;padding:8px 12px}
     #neighborhood:focus{border-color:var(--red)}
@@ -455,6 +537,8 @@
     .shipping-box.show{display:block}
     .modal-summary{margin-top:18px;padding:15px;border-radius:14px;background:#fff06;border:1px solid #fff1}
     .modal-total{display:flex;justify-content:space-between;margin-top:9px;font-size:19px;font-weight:900}
+    
+    /* ===== SMART POPUP ===== */
     .smart-popup{position:fixed;inset:0;z-index:70;background:#0009;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}.smart-popup.open{display:flex}
     .smart-card{width:min(440px,100%);background:#f6ead4;color:#17120e;border-radius:25px;padding:28px;text-align:center;box-shadow:0 30px 100px #000}
     .smart-card .emoji{font-size:45px}
@@ -464,6 +548,93 @@
     .smart-actions button{flex:1;padding:12px;border-radius:11px;font-weight:900}
     .smart-yes{background:var(--red);color:#fff}
     .smart-no{background:#0000000d;color:#17120e}
+
+    /* ===== MODAL DE AGRADECIMIENTO ===== */
+    .thankyou-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .thankyou-modal.open {
+      display: flex;
+    }
+    .thankyou-modal .thankyou-content {
+      max-width: 520px;
+      width: 100%;
+      background: linear-gradient(145deg, #1b1712, #0f0d0b);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 35px 30px 40px;
+      text-align: center;
+      animation: modalFade .5s ease;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+      position: relative;
+    }
+    .thankyou-modal .thankyou-content .close-thankyou-x {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: .3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thankyou-modal .thankyou-content .close-thankyou-x:hover {
+      background: rgba(255,255,255,0.15);
+      transform: rotate(90deg);
+    }
+    .thankyou-modal .thankyou-content img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255,255,255,0.05);
+    }
+    .thankyou-modal .thankyou-content h2 {
+      font-family: 'Gabelisa', 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 48px);
+      color: var(--gold);
+      margin: 10px 0 8px;
+      line-height: 1.1;
+    }
+    .thankyou-modal .thankyou-content .sub-message {
+      color: #b9ae9e;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 8px 0 20px;
+    }
+    .thankyou-modal .thankyou-content .sub-message em {
+      color: #fff;
+      font-style: normal;
+      font-weight: 700;
+    }
+    .thankyou-modal .thankyou-content .whatsapp-redirect {
+      color: #25D366;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 10px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
   </style>
 </head>
 <body>
@@ -814,13 +985,45 @@
       <div class="field"><label>Teléfono</label><input id="customerPhone" placeholder="11 1234 5678"></div>
       <div class="field full">
         <label>Forma de pago</label>
-        <select id="payment">
-          <option>Efectivo</option>
-          <option>Transferencia</option>
-          <option>Mercado Pago</option>
-          <option>Tarjeta</option>
+        <select id="payment" onchange="togglePaymentInfo()">
+          <option value="efectivo">Efectivo</option>
+          <option value="transferencia">Transferencia</option>
+          <option value="mercadopago">Mercado Pago</option>
+          <option value="tarjeta">Tarjeta</option>
         </select>
       </div>
+      
+      <!-- ===== CUADRO DE INFORMACIÓN DE PAGO ===== -->
+      <div class="field full">
+        <div class="payment-info-box" id="paymentInfoBox">
+          <div class="payment-title">💳 Datos para tu pago</div>
+          
+          <div class="payment-row">
+            <span class="payment-label">Titular</span>
+            <span class="payment-value">Pizzería Las Princesas - Juan Pérez</span>
+          </div>
+          
+          <div class="payment-row">
+            <span class="payment-label">CBU / CVU</span>
+            <span class="payment-value" id="cbuDisplay">1234567890123456789012</span>
+            <button class="copy-btn" onclick="copyText('1234567890123456789012', this)">📋 Copiar</button>
+          </div>
+          
+          <div class="payment-row">
+            <span class="payment-label">Alias</span>
+            <span class="payment-value" id="aliasDisplay">princesas.pizza.mp</span>
+            <button class="copy-btn" onclick="copyText('princesas.pizza.mp', this)">📋 Copiar</button>
+          </div>
+          
+          <div class="payment-note">
+            <strong>📌 Importante:</strong><br>
+            • Podés pagar al <span class="highlight">momento de retirar por el local</span> en efectivo o con tarjeta.<br>
+            • Si ya realizaste la transferencia, <span class="highlight">recordá adjuntar el comprobante</span> al confirmar el pedido por WhatsApp.<br>
+            • Tu pedido se confirma una vez que recibamos la confirmación de pago.
+          </div>
+        </div>
+      </div>
+      
       <div class="shipping-box" id="shippingBox">
         <div class="field-grid">
           <div class="field full">
@@ -861,6 +1064,17 @@
       <div class="modal-total"><span>Total</span><span>$<span id="modalTotal">0</span></span></div>
     </div>
     <button class="btn primary" style="width:100%;margin-top:15px" onclick="confirmOrder()">📲 Confirmar y enviar por WhatsApp</button>
+  </div>
+</div>
+
+<!-- ===== MODAL DE AGRADECIMIENTO ===== -->
+<div class="thankyou-modal" id="thankyouModal">
+  <div class="thankyou-content">
+    <button class="close-thankyou-x" onclick="closeThankYou()" aria-label="Cerrar">✕</button>
+    <img src="https://iili.io/C485Mua.md.jpg" alt="¡Muchas gracias por elegirnos!" loading="lazy">
+    <h2>¡MUCHAS GRACIAS<br>POR ELEGIRNOS!</h2>
+    <p class="sub-message">Tu pedido está siendo preparado con <em>❤️ amor</em>. ¡Pronto estará listo!</p>
+    <div class="whatsapp-redirect">⏳ Redirigiendo a WhatsApp...</div>
   </div>
 </div>
 
@@ -961,6 +1175,58 @@
   window.addEventListener('scroll', updateBgTexture, { passive: true });
   window.addEventListener('resize', updateBgTexture, { passive: true });
   setTimeout(updateBgTexture, 100);
+
+  // ===== FUNCIÓN PARA COPIAR TEXTO =====
+  function copyText(text, button) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = button.textContent;
+        button.textContent = '✅ Copiado';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        fallbackCopy(text, button);
+      });
+    } else {
+      fallbackCopy(text, button);
+    }
+  }
+
+  function fallbackCopy(text, button) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      const originalText = button.textContent;
+      button.textContent = '✅ Copiado';
+      button.classList.add('copied');
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      alert('No se pudo copiar. Por favor, copiá manualmente: ' + text);
+    }
+    document.body.removeChild(textarea);
+  }
+
+  // ===== FUNCIÓN PARA MOSTRAR/OCULTAR CUADRO DE PAGO =====
+  function togglePaymentInfo() {
+    const payment = document.getElementById('payment').value;
+    const box = document.getElementById('paymentInfoBox');
+    if (payment === 'transferencia' || payment === 'mercadopago') {
+      box.classList.add('show');
+    } else {
+      box.classList.remove('show');
+    }
+  }
 
   // ===== PRODUCTOS =====
   const products=[
@@ -1151,6 +1417,7 @@
     if(e.key === 'Escape'){
       closeProductModal();
       closeCart();
+      closeThankYou();
     }
   });
 
@@ -1258,10 +1525,9 @@
     add(name, customBaseH.price + customExtrasH.reduce((a,x)=>a+x.price,0), 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=200&q=80', desc);
   }
 
-  // ===== UPSELL HELADO - AHORA VERIFICA SI YA HAY UN HELADO =====
+  // ===== UPSELL HELADO =====
   function checkout(){
     if(!cart.length)return;
-    // Si ya hay un helado en el carrito, NO mostrar el popup
     if (hasIceCreamInCart()) {
       openCheckout();
     } else {
@@ -1281,6 +1547,7 @@
   function openCheckout(){
     updateModalTotals();
     document.getElementById('checkoutModal').classList.add('open');
+    togglePaymentInfo();
   }
   function closeCheckout(){document.getElementById('checkoutModal').classList.remove('open');}
 
@@ -1315,19 +1582,42 @@
     document.getElementById('modalItemsList').textContent=items||'-';
   }
 
+  // ===== FUNCIÓN PARA CERRAR MODAL DE AGRADECIMIENTO =====
+  let thankyouTimer = null;
+
+  function closeThankYou() {
+    document.getElementById('thankyouModal').classList.remove('open');
+    document.body.style.overflow = '';
+    if (thankyouTimer) {
+      clearTimeout(thankyouTimer);
+      thankyouTimer = null;
+    }
+    // Vaciar carrito después de agradecer
+    cart = [];
+    updateCart();
+    closeCheckout();
+    closeCart();
+  }
+
+  // ===== CONFIRMAR PEDIDO =====
   function confirmOrder(){
     const name=document.getElementById('customerName').value.trim();
     if(!name){alert('Ingresá tu nombre para continuar.');return;}
     if(delivery==='delivery' && !document.getElementById('address').value.trim()){alert('Ingresá la dirección de entrega.');return;}
+    
     const subtotal=cart.reduce((a,x)=>a+x.price*(x.qty||1),0);
     const ship=delivery==='delivery'?2500:0;
     const total=subtotal+ship;
+    const payment = document.getElementById('payment').value;
+    
     let items=cart.map(x=>`- ${x.name} x${x.qty||1}: $${money(x.price*(x.qty||1))}`).join('%0A');
     let modalidad=delivery==='delivery'?'Delivery':'Retiro por el local';
+    
     let text=`🍕 NUEVO PEDIDO — PIZZERÍA LAS PRINCESAS%0A%0A`;
     text+=`👤 Nombre: ${encodeURIComponent(name)}%0A`;
     text+=`📞 Teléfono: ${encodeURIComponent(document.getElementById('customerPhone').value)}%0A`;
     text+=`🛍️ Modalidad: ${modalidad}%0A`;
+    
     if(delivery==='delivery'){
       text+=`📍 Dirección: ${encodeURIComponent(document.getElementById('address').value)}%0A`;
       const neighborhoodSelect = document.getElementById('neighborhood');
@@ -1339,14 +1629,36 @@
       const notify=document.getElementById('notifyWhatsapp').checked?'Sí':'No';
       text+=`📢 Avisar por WhatsApp: ${notify}%0A`;
     }
+    
     text+=`%0A📦 Productos:%0A${items}%0A%0A`;
     text+=`💵 Subtotal: $${money(subtotal)}%0A`;
     if(ship>0) text+=`🛵 Envío: $${money(ship)}%0A`;
     text+=`💰 Total: $${money(total)}%0A%0A`;
-    text+=`💳 Pago: ${encodeURIComponent(document.getElementById('payment').value)}%0A`;
+    
+    // Información de pago
+    let paymentText = '';
+    if (payment === 'efectivo') {
+      paymentText = 'Efectivo (pago al retirar)';
+    } else if (payment === 'transferencia') {
+      paymentText = 'Transferencia bancaria - CBU: 1234567890123456789012 - Alias: princesas.pizza.mp - Titular: Pizzería Las Princesas - Juan Pérez';
+      text+=`⚠️ RECORDÁ ADJUNTAR EL COMPROBANTE DE TRANSFERENCIA%0A`;
+    } else if (payment === 'mercadopago') {
+      paymentText = 'Mercado Pago - Alias: princesas.pizza.mp - Titular: Pizzería Las Princesas - Juan Pérez';
+      text+=`⚠️ RECORDÁ ADJUNTAR EL COMPROBANTE DE PAGO%0A`;
+    } else if (payment === 'tarjeta') {
+      paymentText = 'Tarjeta (pago al retirar)';
+    }
+    text+=`💳 Pago: ${encodeURIComponent(paymentText)}%0A`;
     text+=`📝 Observaciones: ${encodeURIComponent(document.getElementById('notes').value)}`;
-    window.open(`https://wa.me/5491100000000?text=${text}`,'_blank');
-    closeCheckout();
+    
+    // Mostrar modal de agradecimiento
+    document.getElementById('thankyouModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    
+    // Abrir WhatsApp después de 2 segundos
+    thankyouTimer = setTimeout(() => {
+      window.open(`https://wa.me/5491100000000?text=${text}`, '_blank');
+    }, 2000);
   }
 
   // ===== INTERSECTION OBSERVER REVEAL =====
